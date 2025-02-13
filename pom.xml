@@ -13,23 +13,27 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.5.2</version>
 					<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFile>
-							testng.xml
-						</suiteXmlFile>
-					</suiteXmlFiles>
+						<suiteXmlFiles>
+							<suiteXmlFile>
+								testng.xml
+							</suiteXmlFile>
+						</suiteXmlFiles>
 					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.13.0</version>
-					 <configuration>
-        <compilerArgs>
-           <!-- <arg>add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>-->
-            <arg>--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
-        </compilerArgs>
-    </configuration>
+					<configuration>
+						<source>21</source> <!-- Set this to the Java version
+						you're using -->
+						<target>21</target>
+						<compilerArgs>
+							<arg>--add-opens</arg>
+							<arg>java.base/java.lang=ALL-UNNAMED</arg> <!--
+							Example module opening -->
+						</compilerArgs>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -47,7 +51,6 @@
 			<version>5.5.0</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -120,20 +123,18 @@
 			<version>2.12.4</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.36</version>
-    <scope>provided</scope>
-</dependency>
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok-mapstruct-binding</artifactId>
-    <version>0.2.0</version>
-    <scope>provided</scope>
-</dependency>
-
-
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.36</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok-mapstruct-binding</artifactId>
+			<version>0.2.0</version>
+			<scope>provided</scope>
+		</dependency>
 
 
 	</dependencies>
